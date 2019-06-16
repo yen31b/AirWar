@@ -4,6 +4,9 @@ import java.util.LinkedList;
 
 public class Matrix {
 
+    Node[][] matrix;
+    LinkedList<Edge>[] adjacencyList;
+
     public Node[][] Matrix(LinkedList<Edge>[] adjacencyList) {
 
         int rows = 2;
@@ -22,7 +25,8 @@ public class Matrix {
                 matrix[filaRandom][columnaRandom].vertices += 5;
             }
         }
-
+        this.matrix = matrix;
+        this.adjacencyList = adjacencyList;
         return matrix;
     }
 
@@ -33,5 +37,4 @@ public class Matrix {
             System.out.println();
         }
     }
-
 }

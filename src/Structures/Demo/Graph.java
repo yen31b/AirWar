@@ -23,7 +23,7 @@ public class Graph {
         for (int i = 0; i < node.vertices ; i++) {
             LinkedList<Edge> list = adjacencylist[i];
             for (int j = 0; j <list.size() ; j++) {
-                System.out.println(i + " --> " + list.get(j).destination + " W(" + list.get(j).weight + ")\t");
+                System.out.println(i + " --> " + list.get(j).destination + " W(" + list.get(j).danger + ")\t");
             }
         }
     }
