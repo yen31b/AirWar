@@ -1,7 +1,5 @@
 package Structures.Graph;
 
-import java.util.LinkedList;
-
 public class Matrix {
 
     Node[][] matrix;
@@ -32,12 +30,13 @@ public class Matrix {
             }
         }
         this.matrix = matrix;
+
     }
 
     public void printMatrix() {
         for (Node[] nodes : matrix) {
             for (Node node : nodes) {
-                System.out.println("v: " + node.vertices + " u: " + node.ubication);
+                System.out.println("vertice= " + node.vertices + " mar= " + node.ubication);
             }
             System.out.println();
         }

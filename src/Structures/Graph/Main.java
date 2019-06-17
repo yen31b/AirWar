@@ -1,38 +1,52 @@
 package Structures.Graph;
 
+import java.util.LinkedList;
+
 import static algorithms.FloydWarshall.FloydWarshell;
 
 public class Main{
 
     public static void main(String[] args) {
-        Node n = new Node(8, 0);
-        Graph graph = new Graph(n);
-        graph.addEdge(2, 1, 0);
-        graph.addEdge(2, 3, 0);
-        graph.addEdge(2, 5, 0);
-        graph.addEdge(3, 1, 0);
-        graph.addEdge(3, 2, 0);
-        graph.addEdge(3, 4, 0);
-        graph.addEdge(3, 5, 0);
-        graph.addEdge(3, 6, 0);
-        graph.addEdge(5, 2, 0);
-        graph.addEdge(5, 3, 0);
-        graph.addEdge(5, 4, 0);
-        graph.addEdge(5, 6, 0);
-        graph.addEdge(5, 7, 0);
-        graph.addEdge(5, 8, 0);
-        graph.addEdge(6, 4, 0);
-        graph.addEdge(6, 5, 0);
-        graph.addEdge(6, 7, 0);
-        graph.addEdge(6, 8, 0);
-        graph.addEdge(7, 5, 0);
-        graph.addEdge(7, 6, 0);
-        graph.addEdge(7, 8, 0);
-        graph.printGraph(n);
         Matrix m = new Matrix();
         m.printMatrix();
+        Node n = new Node(9, 0);
+        Graph graph = new Graph(n);
+        graph.addEdge(2, 1, 0, m.matrix);
+        graph.addEdge(2, 3, 0, m.matrix);
+        graph.addEdge(2, 5, 0, m.matrix);
+        graph.addEdge(3, 1, 0, m.matrix);
+        graph.addEdge(3, 2, 0, m.matrix);
+        graph.addEdge(3, 4, 0, m.matrix);
+        graph.addEdge(3, 5, 0, m.matrix);
+        graph.addEdge(3, 6, 0, m.matrix);
+        graph.addEdge(5, 2, 0, m.matrix);
+        graph.addEdge(5, 3, 0, m.matrix);
+        graph.addEdge(5, 4, 0, m.matrix);
+        graph.addEdge(5, 6, 0, m.matrix);
+        graph.addEdge(5, 7, 0, m.matrix);
+        graph.addEdge(5, 8, 0, m.matrix);
+        graph.addEdge(6, 4, 0, m.matrix);
+        graph.addEdge(6, 5, 0, m.matrix);
+        graph.addEdge(6, 7, 0, m.matrix);
+        graph.addEdge(6, 8, 0, m.matrix);
+        graph.addEdge(7, 5, 0, m.matrix);
+        graph.addEdge(7, 6, 0, m.matrix);
+        graph.addEdge(7, 8, 0, m.matrix);
+        //graph.printGraph(n);
 
-        //Matriz de adyacencia
+        for (LinkedList<Edge> lle : graph.adjacencylist) {
+            for (Edge e : lle) {
+                graph.addEdgeAdj(e.source, e.destination, (int) e.distance);
+            }
+        }
+
+        graph.imprimirGrafo();
+        FloydWarshell(graph.adjMatrix, graph.adjMatrix.length);
+
+
+
+
+        //Matriz de adyacencia (referencia)
     /*
         g.addEdgeAdj(0, 0,0);
         g.addEdgeAdj(0, 1,3);
