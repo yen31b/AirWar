@@ -17,7 +17,7 @@ public class Edge {
         this.danger = danger;
     }
 
-    public Edge(LinkedList<Edge>[] adjList, Node[][] matrix) {
+    public void getDistance(LinkedList<Edge>[] adjList, Node[][] matrix) {
         double dist;
         double[][] localization = new double[2][2];
         for (LinkedList<Edge> lle: adjList) {

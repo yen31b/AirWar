@@ -18,12 +18,12 @@ public class Graph {
         }
     }
 
-    public void addEdge(int source, int destination, int weight) {
-        Edge edge = new Edge(source, destination, weight);
+    public void addEdge(int source, int destination, int danger) {
+        Edge edge = new Edge(source, destination, danger);
         adjacencylist[source].addFirst(edge); //for directed graph
     }
 
-    public void printGraph(Node node){
+    public void printGraph(Node node) {
         for (int i = 0; i < node.vertices ; i++) {
             LinkedList<Edge> list = adjacencylist[i];
             for (int j = 0; j <list.size() ; j++) {
