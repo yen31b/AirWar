@@ -1,37 +1,57 @@
 package Structures.Graph;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import static algorithms.FloydWarshall.FloydWarshell;
 
-public class Main {
+public class Main{
 
-    public static void printGraph(Graph graph) {
-        int src = 0;
-        int n = graph.adj.size();
+    public static void main(String[] args) {
+        Node n = new Node(8, 0);
+        Graph graph = new Graph(n);
+        graph.addEdge(2, 1, 4);
+        graph.addEdge(2, 3, 3);
+        graph.addEdge(2, 5, 2);
+        graph.addEdge(3, 1, 5);
+        graph.addEdge(3, 2, 7);
+        graph.addEdge(3, 4, 2);
+        graph.addEdge(3, 5, 4);
+        graph.addEdge(3, 6, 4);
+        graph.addEdge(5, 2, 6);
+        graph.addEdge(5, 3, 6);
+        graph.addEdge(5, 4, 6);
+        graph.addEdge(5, 6, 6);
+        graph.addEdge(5, 7, 6);
+        graph.addEdge(5, 8, 6);
+        graph.addEdge(6, 4, 6);
+        graph.addEdge(6, 5, 6);
+        graph.addEdge(6, 7, 6);
+        graph.addEdge(6, 8, 6);
+        graph.addEdge(7, 5, 6);
+        graph.addEdge(7, 6, 6);
+        graph.addEdge(7, 8, 6);
+        graph.printGraph(n);
+        Matrix m = new Matrix(graph.adjacencylist);
+        m.printMatrix();
 
-        while (src < n) {
-            for (Node edge : graph.adj.get(src)) {
-                System.out.print(src + " --> " + edge.value +
-                        " (" + edge.weight + ")\t");
-            }
+        //Matriz de adyacencia
+    /*
+        g.addEdgeAdj(0, 0,0);
+        g.addEdgeAdj(0, 1,3);
+        g.addEdgeAdj(0, 2,9);
+        g.addEdgeAdj(0, 3,16);
 
-            System.out.println();
-            src++;
-        }
+        g.addEdgeAdj(1, 1,0);
+        g.addEdgeAdj(1, 2,10);
+        g.addEdgeAdj(1, 3,5);
+
+        g.addEdgeAdj(2, 2,0);
+        g.addEdgeAdj(2, 3,4);
+
+
+        g.imprimirGrafo();
+
+        FloydWarshell(g.adjMatrix, g.adjMatrix.length);
+
+*/
+
     }
-
-    public static void main (String[] args) {
-
-        List<Edge> edges = Arrays.asList(new Edge(0, 1, 6), new Edge(1, 2, 7),
-                new Edge(2, 0, 5), new Edge(2, 1, 4),
-                new Edge(3, 2, 10), new Edge(4, 5, 1),
-                new Edge(5, 4, 3));
-
-
-        Graph graph = new Graph(edges);
-
-        printGraph(graph);
-    }
-
 }

@@ -2,14 +2,11 @@ package Structures.Graph;
 
 public class Node {
 
-    int value, weight;
+    int vertices, ubication;
 
-    Node(int value, int weight) {
-        this.value = value;
-        this.weight = weight;
+    Node(int vertices, int ubication) {
+        this.vertices = vertices;
+        this.ubication = ubication;
     }
-
-
-
 
 }
