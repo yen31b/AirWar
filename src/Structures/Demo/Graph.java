@@ -5,9 +5,13 @@ import java.util.LinkedList;
 public class Graph {
 
     LinkedList<Edge>[] adjacencylist;
+    int [][] adjMatrix ;
+    Node node;
 
     Graph(Node node) {
         adjacencylist = new LinkedList[node.vertices];
+        adjMatrix = new int[node.vertices][node.vertices];
+
         //initialize adjacency lists for all the vertices
         for (int i = 0; i < node.vertices ; i++) {
             adjacencylist[i] = new LinkedList<>();
@@ -27,5 +31,38 @@ public class Graph {
             }
         }
     }
+
+    public void addEdgeAdj(int i, int j, int weight) {
+
+        if(i==j){
+            adjMatrix[i][j] = Integer.MAX_VALUE;
+        }
+        if(weight == 0){
+            adjMatrix[i][j] = Integer.MAX_VALUE;
+        }
+        else{
+            adjMatrix[i][j] = weight;
+            adjMatrix[j][i] = weight;
+        }
+    }
+
+
+    public void imprimirGrafo(){
+        System.out.printf("  %d" , 0);
+        for (int i = 1; i < adjMatrix.length; i++) {
+            System.out.printf(" %d" , i);
+        }
+        System.out.println();
+
+        for(int i = 0; i < adjMatrix.length; i++){
+            System.out.printf("%d ",i);
+            for(int j = 0; j < adjMatrix[i].length; j++){
+                System.out.printf("%d " , adjMatrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+
 
 }
