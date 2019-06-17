@@ -18,7 +18,8 @@ public class Graph {
     }
 
     public void addEdge(int source, int destination, int danger, Node[][] matrix) {
-        double dist;
+        int dist;
+        int terrain;
         double[][] localization = new double[2][2];
         boolean[] cont = new boolean[2];
         int i = 0;
@@ -45,8 +46,9 @@ public class Graph {
         double x2 = localization[0][1];
         double y1 = localization[1][0];
         double y2 = localization[1][1];
-        dist = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        Edge edge = new Edge(source, destination, danger, dist);
+        dist = (int) Math.round(Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
+        terrain = matrix[(int)x1][(int)x2].ubication + matrix[(int)y1][(int)y2].ubication;
+        Edge edge = new Edge(source, destination, danger, dist, terrain);
         adjacencylist[source].addFirst(edge); //for directed graph
     }
 

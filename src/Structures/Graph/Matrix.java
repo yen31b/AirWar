@@ -18,9 +18,7 @@ public class Matrix {
                     if (j == c[0] && i == c[1]) {
                         matrix[i][j] = new Node(num + 1, 0);
                         if ((i == 3 && j == 0) || (i == 4 && j == 5) || (i == 3 && j == 9)) {
-                            System.out.println(i);
-                            System.out.println(j);
-                            matrix[i][j].ubication = 1;
+                            matrix[i][j].ubication = 2;
 
                         }
                     }
